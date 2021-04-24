@@ -4,13 +4,14 @@
 # ------------------------------------------------------------------------------
 
 data "aws_iam_policy_document" "provisioncloudtrail_doc" {
-  # Permissions necessary to manipulate the state bucket
+  # Permissions necessary to manipulate the S3 bucket where CloudTrail
+  # logs are stored.
   statement {
     actions = [
       "s3:*"
     ]
     resources = [
-      "arn:aws:s3:::${var.cloudtrail_bucket_name}",
+      "arn:aws:s3:::${var.bucket_prefix}*",
     ]
   }
 }

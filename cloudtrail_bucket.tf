@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "cloudtrail" {
     aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
   ]
 
-  bucket_prefix = var.cloudtrail_bucket_prefix
+  bucket_prefix = var.bucket_prefix
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {

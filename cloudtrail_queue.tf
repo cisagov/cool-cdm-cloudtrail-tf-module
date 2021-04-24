@@ -6,7 +6,12 @@
 # CDM queue of messages notifying of CloudTrail logs being written to
 # the CDM S3 bucket
 resource "aws_sqs_queue" "cloudtrail" {
-  name = var.cloudtrail_queue_name
+  # We can't perform this action until our policy is in place.
+  depends_on = [
+    aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
+  ]
+
+  name = var.queue_name
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.cloudtrail_dlq.arn
     # Move messages to the DLQ if the user can't process them after
@@ -46,7 +51,7 @@ resource "aws_sqs_queue_policy" "cloudtrail" {
 # CDM dead letter queue (messages sent to CDM queue that cannot be
 # processed)
 resource "aws_sqs_queue" "cloudtrail_dlq" {
-  name = var.cloudtrail_deadletter_queue_name
+  name = var.deadletter_queue_name
   tags = var.tags
 }
 

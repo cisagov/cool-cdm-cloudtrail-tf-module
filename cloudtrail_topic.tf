@@ -4,7 +4,12 @@
 # ------------------------------------------------------------------------------
 
 resource "aws_sns_topic" "cloudtrail" {
-  name = var.cloudtrail_topic_name
+  # We can't perform this action until our policy is in place.
+  depends_on = [
+    aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
+  ]
+
+  name = var.topic_name
   tags = var.tags
 }
 
