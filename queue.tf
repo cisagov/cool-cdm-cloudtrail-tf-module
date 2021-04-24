@@ -8,7 +8,7 @@
 resource "aws_sqs_queue" "cloudtrail" {
   # We can't perform this action until our policy is in place.
   depends_on = [
-    aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
+    aws_iam_role_policy_attachment.provisioncdmcloudtrail_policy_attachment,
   ]
 
   name = var.queue_name

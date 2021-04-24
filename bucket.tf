@@ -6,7 +6,7 @@
 resource "aws_s3_bucket" "cloudtrail" {
   # We can't perform this action until our policy is in place.
   depends_on = [
-    aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
+    aws_iam_role_policy_attachment.provisioncdmcloudtrail_policy_attachment,
   ]
 
   bucket_prefix = var.bucket_prefix

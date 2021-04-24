@@ -6,7 +6,7 @@
 resource "aws_sns_topic" "cloudtrail" {
   # We can't perform this action until our policy is in place.
   depends_on = [
-    aws_iam_role_policy_attachment.provisioncloudtrail_policy_attachment,
+    aws_iam_role_policy_attachment.provisioncdmcloudtrail_policy_attachment,
   ]
 
   name = var.topic_name

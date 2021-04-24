@@ -33,6 +33,18 @@ variable "provisionaccount_role_name" {
   default     = "ProvisionAccount"
 }
 
+variable "provisioncdmcloudtrail_policy_description" {
+  type        = string
+  description = "The description of the IAM policy that allows sufficient permissions to provision all CDM CloudTrail AWS resources in the account."
+  default     = "Allows provisioning of the CDM CloudTrail resources in the account."
+}
+
+variable "provisioncdmcloudtrail_policy_name" {
+  type        = string
+  description = "The name of the IAM policy that allows sufficient permissions to provision all CDM CloudTrail AWS resources in the account."
+  default     = "ProvisionCdmCloudTrail"
+}
+
 variable "role_description" {
   type        = string
   description = "The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data."

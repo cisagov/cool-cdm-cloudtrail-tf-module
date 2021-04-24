@@ -3,7 +3,7 @@
 # provision the CloudTrail-related resources for CDM access.
 # ------------------------------------------------------------------------------
 
-resource "aws_iam_role_policy_attachment" "provisioncloudtrail_policy_attachment" {
-  policy_arn = aws_iam_policy.provisioncloudtrail_policy.arn
+resource "aws_iam_role_policy_attachment" "provisioncdmcloudtrail_policy_attachment" {
+  policy_arn = aws_iam_policy.provisioncdmcloudtrail_policy.arn
   role       = var.provisionaccount_role_name
 }

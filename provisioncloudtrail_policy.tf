@@ -3,7 +3,7 @@
 # provision the CloudTrail-related resources for CDM access.
 # ------------------------------------------------------------------------------
 
-data "aws_iam_policy_document" "provisioncloudtrail_doc" {
+data "aws_iam_policy_document" "provisioncdmcloudtrail_doc" {
   # Permissions necessary to manipulate the S3 bucket where CloudTrail
   # logs are stored.
   statement {
@@ -52,8 +52,8 @@ data "aws_iam_policy_document" "provisioncloudtrail_doc" {
 }
 
 # The IAM policy
-resource "aws_iam_policy" "provisioncloudtrail_policy" {
-  description = var.provisioncloudtrail_policy_description
-  name        = var.provisioncloudtrail_policy_name
-  policy      = data.aws_iam_policy_document.provisioncloudtrail_doc.json
+resource "aws_iam_policy" "provisioncdmcloudtrail_policy" {
+  description = var.provisioncdmcloudtrail_policy_description
+  name        = var.provisioncdmcloudtrail_policy_name
+  policy      = data.aws_iam_policy_document.provisioncdmcloudtrail_doc.json
 }
