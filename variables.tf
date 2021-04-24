@@ -3,10 +3,6 @@
 #
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
-variable "users_account_id" {
-  type        = string
-  description = "The ID of the Users account, where the CDM access user exists."
-}
 
 # ------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS

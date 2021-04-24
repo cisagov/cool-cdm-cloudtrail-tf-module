@@ -42,6 +42,7 @@ module "example" {
 | Name | Version |
 |------|---------|
 | aws | ~> 3.0 |
+| aws.users | ~> 3.0 |
 
 ## Modules ##
 
@@ -65,6 +66,7 @@ No modules.
 | [aws_sqs_queue.cloudtrail](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
 | [aws_sqs_queue.cloudtrail_dlq](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue) | resource |
 | [aws_sqs_queue_policy.cloudtrail](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy) | resource |
+| [aws_caller_identity.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.allow_access_to_queue_and_bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.allow_cloudtrail_to_publish_to_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.allow_cloudtrail_topic_to_send_messages](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
@@ -85,7 +87,6 @@ No modules.
 | cloudtrail\_trail\_name | The name of the CloudTrail trail that generates the information for import into CDM. | `string` | `"cdm-cloudtrail"` | no |
 | provisionaccount\_role\_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the account. | `string` | `"ProvisionAccount"` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
-| users\_account\_id | The ID of the Users account, where the CDM access user exists. | `string` | n/a | yes |
 
 ## Outputs ##
 
