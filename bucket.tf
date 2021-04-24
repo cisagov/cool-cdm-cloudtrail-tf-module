@@ -29,3 +29,51 @@ resource "aws_s3_bucket_public_access_block" "cloudtrail" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
+
+# Policy document that allows CloudTrail to write logs to this bucket.
+# See
+# https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html.
+data "aws_iam_policy_document" "allow_cloudtrail_to_write_logs" {
+  # Allow ACL check
+  statement {
+    actions = [
+      "s3:GetBucketAcl",
+    ]
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+    resources = [
+      aws_s3_bucket.cloudtrail.arn,
+    ]
+  }
+
+  # Allow writing of logs
+  statement {
+    actions = [
+      "s3:PutObject",
+    ]
+    condition {
+      values = [
+        "bucket-owner-full-control",
+      ]
+      test     = "StringEquals"
+      variable = "s3:x-amz-acl"
+    }
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+    resources = [
+      "${aws_s3_bucket.cloudtrail.arn}/AWSLogs/${local.account_id}/*",
+    ]
+  }
+}
+
+# Policy that allows CloudTrail to write logs to this bucket
+resource "aws_s3_bucket_policy" "cloudtrail" {
+  bucket = aws_s3_bucket.cloudtrail.id
+  policy = data.aws_iam_policy_document.allow_cloudtrail_to_write_logs.json
+}
