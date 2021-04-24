@@ -91,13 +91,13 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| access\_policy | The IAM policy with the necessary permissions to access the CDM CloudTrail data. |
 | access\_role | The IAM role that can be assumed to access the CDM CloudTrail data. |
-| cloudtrail\_access\_policy | The IAM policy with the necessary permissions to access the CDM CloudTrail data. |
-| cloudtrail\_bucket | The S3 bucket where CloudTrail logs are stored for CDM. |
-| cloudtrail\_deadletter\_queue | The SQS deadletter queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket for which processing has failed. |
-| cloudtrail\_queue | The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket. |
-| cloudtrail\_topic | The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket. |
-| cloudtrail\_trail | The CloudTrail trail for CDM. |
+| bucket | The S3 bucket where CloudTrail logs are stored for CDM. |
+| deadletter\_queue | The SQS deadletter queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket for which processing has failed. |
+| queue | The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket. |
+| topic | The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket. |
+| trail | The CloudTrail trail for CDM. |
 
 ## Notes ##
 
