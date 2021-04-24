@@ -1,24 +1,34 @@
-output "arn" {
-  value       = aws_instance.example.arn
-  description = "The EC2 instance ARN"
+output "access_role" {
+  value       = aws_iam_role.cloudtrail
+  description = "The IAM role that can be assumed to access the CDM CloudTrail data."
 }
 
-output "availability_zone" {
-  value       = aws_instance.example.availability_zone
-  description = "The AZ where the EC2 instance is deployed"
+output "cloudtrail_access_policy" {
+  value       = aws_iam_policy.cloudtrail
+  description = "The IAM policy with the necessary permissions to access the CDM CloudTrail data."
 }
 
-output "id" {
-  value       = aws_instance.example.id
-  description = "The EC2 instance ID"
+output "cloudtrail_bucket" {
+  value       = aws_s3_bucket.cloudtrail
+  description = "The S3 bucket where CloudTrail logs are stored for CDM."
 }
 
-output "private_ip" {
-  value       = aws_instance.example.private_ip
-  description = "The private IP of the EC2 instance"
+output "cloudtrail_deadletter_queue" {
+  value       = aws_sqs_queue.cloudtrail_dlq
+  description = "The SQS deadletter queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket for which processing has failed."
 }
 
-output "subnet_id" {
-  value       = aws_instance.example.subnet_id
-  description = "The ID of the subnet where the EC2 instance is deployed"
+output "cloudtrail_queue" {
+  value       = aws_sqs_queue.cloudtrail
+  description = "The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket."
+}
+
+output "cloudtrail_topic" {
+  value       = aws_sns_topic.cloudtrail
+  description = "The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket."
+}
+
+output "cloudtrail_trail" {
+  value       = aws_cloudtrail.trail
+  description = "The CloudTrail trail for CDM."
 }
