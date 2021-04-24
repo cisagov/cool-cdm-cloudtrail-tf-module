@@ -28,7 +28,6 @@ data "aws_iam_policy_document" "allow_cloudtrail_topic_to_send_messages" {
     actions = [
       "sqs:SendMessage",
     ]
-    effect = "Allow"
     condition {
       values = [
         aws_sns_topic.cloudtrail.arn,
@@ -36,6 +35,7 @@ data "aws_iam_policy_document" "allow_cloudtrail_topic_to_send_messages" {
       test     = "ArnEquals"
       variable = "aws:SourceArn"
     }
+    effect = "Allow"
     resources = [
       aws_sqs_queue.cloudtrail.arn,
     ]
