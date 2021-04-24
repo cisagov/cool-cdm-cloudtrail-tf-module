@@ -32,6 +32,6 @@ data "aws_iam_policy_document" "allow_cloudtrail_to_publish_to_topic" {
 
 # Policy that allows CloudTrail to publish to this topic
 resource "aws_sns_topic_policy" "cloudtrail" {
-  arn    = aws_sqs_queue.cloudtrail.arn
+  arn    = aws_sns_topic.cloudtrail.arn
   policy = data.aws_iam_policy_document.allow_cloudtrail_to_publish_to_topic.json
 }
