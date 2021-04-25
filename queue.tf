@@ -36,6 +36,10 @@ data "aws_iam_policy_document" "allow_cloudtrail_topic_to_send_messages" {
       variable = "aws:SourceArn"
     }
     effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["sns.amazonaws.com"]
+    }
     resources = [
       aws_sqs_queue.cloudtrail.arn,
     ]
