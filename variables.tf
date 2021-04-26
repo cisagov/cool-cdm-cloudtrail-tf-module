@@ -17,7 +17,7 @@ variable "aws_region" {
 
 variable "bucket_prefix" {
   type        = string
-  description = "A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a uniqie bucket name beginning with the specified prefix."
+  description = "A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a unique bucket name beginning with the specified prefix."
   default     = "cdm-cloudtrail-"
 }
 
