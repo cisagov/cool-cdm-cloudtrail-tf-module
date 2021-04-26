@@ -8,6 +8,11 @@ output "access_role" {
   description = "The IAM role that can be assumed to access the CDM CloudTrail data."
 }
 
+output "assume_access_role_policy" {
+  value       = aws_iam_policy.cdm
+  description = "The IAM policy that allows the CDM user to assume the IAM role that allows access the CDM CloudTrail data."
+}
+
 output "bucket" {
   value       = aws_s3_bucket.cloudtrail
   description = "The S3 bucket where CloudTrail logs are stored for CDM."
