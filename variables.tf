@@ -4,6 +4,11 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
+variable "cdm_user_name" {
+  type        = string
+  description = "The user name of the CDM user who will assume the role to access the CloudTrail data."
+}
+
 # ------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 #
@@ -15,16 +20,22 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "assume_role_policy_name" {
+  type        = string
+  description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
+  default     = "assume-cdm-cloudtrail-role"
+}
+
+variable "assume_role_policy_description" {
+  type        = string
+  description = "The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
+  default     = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
+}
+
 variable "bucket_prefix" {
   type        = string
   description = "A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a unique bucket name beginning with the specified prefix."
   default     = "cdm-cloudtrail-"
-}
-
-variable "cdm_user_name" {
-  type        = string
-  description = "The user name of the CDM user who will assume the role to access the CloudTrail data."
-  default     = "cdm-splunk-access"
 }
 
 variable "deadletter_queue_name" {

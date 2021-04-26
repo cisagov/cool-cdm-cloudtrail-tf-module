@@ -78,15 +78,16 @@ No modules.
 | [aws_iam_policy_document.allow_users_account_to_assume_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.assume_role_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.provisioncdmcloudtrail_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
-| [aws_iam_user.cdm](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_user) | data source |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| assume\_role\_policy\_description | The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data. | `string` | `"The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."` | no |
+| assume\_role\_policy\_name | The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data. | `string` | `"assume-cdm-cloudtrail-role"` | no |
 | aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
 | bucket\_prefix | A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a unique bucket name beginning with the specified prefix. | `string` | `"cdm-cloudtrail-"` | no |
-| cdm\_user\_name | The user name of the CDM user who will assume the role to access the CloudTrail data. | `string` | `"cdm-splunk-access"` | no |
+| cdm\_user\_name | The user name of the CDM user who will assume the role to access the CloudTrail data. | `string` | n/a | yes |
 | deadletter\_queue\_name | The name of the deadletter queue associated with the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail-deadletter"` | no |
 | provisionaccount\_role\_name | The name of the IAM role that allows sufficient permissions to provision all AWS resources in the account. | `string` | `"ProvisionAccount"` | no |
 | provisioncdmcloudtrail\_policy\_description | The description of the IAM policy that allows sufficient permissions to provision all CDM CloudTrail AWS resources in the account. | `string` | `"Allows provisioning of the CDM CloudTrail resources in the account."` | no |

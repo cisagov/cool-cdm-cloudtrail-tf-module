@@ -22,8 +22,8 @@ data "aws_iam_policy_document" "allow_users_account_to_assume_role" {
 resource "aws_iam_policy" "cdm" {
   provider = aws.users
 
-  description = var.role_description
-  name        = var.role_name
+  description = var.assume_role_policy_description
+  name        = var.assume_role_policy_name
   policy      = data.aws_iam_policy_document.allow_users_account_to_assume_role.json
   tags        = var.tags
 }
