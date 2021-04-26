@@ -23,7 +23,7 @@ variable "aws_region" {
 variable "assume_role_policy_name" {
   type        = string
   description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
-  default     = "assume-cdm-cloudtrail-role"
+  default     = "AssumeCdmCloudTrail"
 }
 
 variable "assume_role_policy_description" {
@@ -71,7 +71,7 @@ variable "role_description" {
 variable "role_name" {
   type        = string
   description = "The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data."
-  default     = "cdm-cloudtrail"
+  default     = "CdmCloudTrail"
 }
 
 variable "queue_name" {
