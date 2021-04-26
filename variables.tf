@@ -4,6 +4,16 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
+variable "assume_role_policy_description" {
+  type        = string
+  description = "The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., \"The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data in the AccountName account.\")."
+}
+
+variable "assume_role_policy_name" {
+  type        = string
+  description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., \"ACCTNAME-AssumeCdmCloudTrail\")."
+}
+
 variable "cdm_user_name" {
   type        = string
   description = "The user name of the CDM user who will assume the role to access the CloudTrail data."
@@ -18,18 +28,6 @@ variable "aws_region" {
   type        = string
   description = "The AWS region to deploy into (e.g. us-east-1)."
   default     = "us-east-1"
-}
-
-variable "assume_role_policy_name" {
-  type        = string
-  description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
-  default     = "AssumeCdmCloudTrail"
-}
-
-variable "assume_role_policy_description" {
-  type        = string
-  description = "The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
-  default     = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data."
 }
 
 variable "bucket_prefix" {
