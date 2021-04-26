@@ -21,6 +21,12 @@ variable "bucket_prefix" {
   default     = "cdm-cloudtrail-"
 }
 
+variable "cdm_user_name" {
+  type        = string
+  description = "The user name of the CDM user who will assume the role to access the CloudTrail data."
+  default     = "cdm-splunk-access"
+}
+
 variable "deadletter_queue_name" {
   type        = string
   description = "The name of the deadletter queue associated with the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket."
