@@ -14,12 +14,15 @@ the CloudTrail logs from the S3 bucket as they are processed.
 ```hcl
 module "example" {
   source = "github.com/cisagov/cool-cdm-cloudtrail-tf-module"
+  providers = {
+    aws = aws.xyzprovisionaccount
+    aws.users = aws.usersprovisionaccount
+  }
 
-  aws_region            = "us-west-1"
-  aws_availability_zone = "b"
-  subnet_id             = "subnet-0123456789abcdef0"
-
-  tags = {
+  assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data in the Xyz account."
+  assume_role_policy_name        = "Xyz-AssumeCdmCloudTrail"
+  cdm_user_name                  = "my-cdm-user"
+  tags                           = {
     Key1 = "Value1"
     Key2 = "Value2"
   }
