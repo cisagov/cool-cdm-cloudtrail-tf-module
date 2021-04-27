@@ -9,6 +9,7 @@ data "aws_iam_policy_document" "allow_users_account_to_assume_role" {
   statement {
     actions = [
       "sts:AssumeRole",
+      "sts:TagSession",
     ]
     effect = "Allow"
     resources = [
