@@ -1,24 +1,39 @@
-output "id" {
-  value       = module.example.id
-  description = "The EC2 instance ID"
+output "access_policy" {
+  value       = module.example.access_policy
+  description = "The IAM policy with the necessary permissions to access the CDM CloudTrail data."
 }
 
-output "arn" {
-  value       = module.example.arn
-  description = "The EC2 instance ARN"
+output "access_role" {
+  value       = module.example.access_role
+  description = "The IAM role that can be assumed to access the CDM CloudTrail data."
 }
 
-output "availability_zone" {
-  value       = module.example.availability_zone
-  description = "The AZ where the EC2 instance is deployed"
+output "assume_access_role_policy" {
+  value       = module.example.assume_access_role_policy
+  description = "The IAM policy that allows the CDM user to assume the IAM role that allows access the CDM CloudTrail data."
 }
 
-output "private_ip" {
-  value       = module.example.private_ip
-  description = "The private IP of the EC2 instance"
+output "bucket" {
+  value       = module.example.bucket
+  description = "The S3 bucket where CloudTrail logs are stored for CDM."
 }
 
-output "subnet_id" {
-  value       = module.example.subnet_id
-  description = "The ID of the subnet where the EC2 instance is deployed"
+output "deadletter_queue" {
+  value       = module.example.deadletter_queue
+  description = "The SQS deadletter queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket for which processing has failed."
+}
+
+output "queue" {
+  value       = module.example.queue
+  description = "The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket."
+}
+
+output "topic" {
+  value       = module.example.topic
+  description = "The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket."
+}
+
+output "trail" {
+  value       = module.example.trail
+  description = "The CloudTrail trail for CDM."
 }
