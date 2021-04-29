@@ -30,8 +30,8 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| accountname\_role\_arn | The ARN of the role to assume for the AccountName provider. | `string` | `"arn:aws:iam::210987654321:role/ProvisionAccount"` | no |
 | users\_role\_arn | The ARN of the role to assume for the default provider. | `string` | `"arn:aws:iam::123456789012:role/ProvisionAccount"` | no |
-| xyz\_role\_arn | The ARN of the role to assume for the Xyz provider. | `string` | `"arn:aws:iam::210987654321:role/ProvisionAccount"` | no |
 
 ## Outputs ##
 
