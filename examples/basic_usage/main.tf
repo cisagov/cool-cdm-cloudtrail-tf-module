@@ -1,10 +1,20 @@
 provider "aws" {
-  # Our primary provider uses our terraform role
-  region = var.aws_region
+  # Our default provider uses our AccountName role
   assume_role {
-    role_arn     = var.tf_role_arn
-    session_name = "terraform-example"
+    role_arn     = var.accountname_role_arn
+    session_name = "cool-cdm-cloudtrail-tf-module-example"
   }
+  region = "us-east-1"
+}
+
+provider "aws" {
+  # Our "users" provider uses our Users account role
+  alias = "users"
+  assume_role {
+    role_arn     = var.users_role_arn
+    session_name = "cool-cdm-cloudtrail-tf-module-example"
+  }
+  region = "us-east-1"
 }
 
 #-------------------------------------------------------------------------------
@@ -13,11 +23,15 @@ provider "aws" {
 module "example" {
   source = "../../"
   providers = {
-    aws = aws
+    aws       = aws
+    aws.users = aws.users
   }
 
-  ami_owner_account_id  = var.ami_owner_account_id
-  aws_availability_zone = var.aws_availability_zone
-  aws_region            = var.aws_region
-  subnet_id             = aws_subnet.example.id
+  assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."
+  assume_role_policy_name        = "AccountName-AssumeCdmCloudTrail"
+  cdm_user_name                  = "my-cdm-user"
+  tags = {
+    Key1 = "Value1"
+    Key2 = "Value2"
+  }
 }

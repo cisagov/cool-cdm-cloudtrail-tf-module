@@ -1,4 +1,4 @@
-# Launch an example EC2 instance in a new VPC #
+# Example Terraform Code #
 
 ## Usage ##
 
@@ -14,25 +14,34 @@ No requirements.
 
 ## Providers ##
 
-| Name | Version |
-|------|---------|
-| aws | n/a |
+No providers.
+
+## Modules ##
+
+| Name | Source | Version |
+|------|--------|---------|
+| example | ../../ |  |
+
+## Resources ##
+
+No resources.
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ami_owner_account_id | The ID of the AWS account that owns the AMI, or "self" if the AMI is owned by the same account as the provisioner. | `string` | `self` | no |
-| aws_availability_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.) | `string` | `a` | no |
-| aws_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `us-east-1` | no |
-| tf_role_arn | The ARN of the role that can terraform non-specialized resources. | `string` | n/a | yes |
+| accountname\_role\_arn | The ARN of the role to assume for the AccountName provider. | `string` | `"arn:aws:iam::210987654321:role/ProvisionAccount"` | no |
+| users\_role\_arn | The ARN of the role to assume for the default provider. | `string` | `"arn:aws:iam::123456789012:role/ProvisionAccount"` | no |
 
 ## Outputs ##
 
 | Name | Description |
 |------|-------------|
-| arn | The EC2 instance ARN |
-| availability_zone | The AZ where the EC2 instance is deployed |
-| id | The EC2 instance ID |
-| private_ip | The private IP of the EC2 instance |
-| subnet_id | The ID of the subnet where the EC2 instance is deployed |
+| access\_policy | The IAM policy with the necessary permissions to access the CDM CloudTrail data. |
+| access\_role | The IAM role that can be assumed to access the CDM CloudTrail data. |
+| assume\_access\_role\_policy | The IAM policy that allows the CDM user to assume the IAM role that allows access the CDM CloudTrail data. |
+| bucket | The S3 bucket where CloudTrail logs are stored for CDM. |
+| deadletter\_queue | The SQS deadletter queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket for which processing has failed. |
+| queue | The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket. |
+| topic | The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket. |
+| trail | The CloudTrail trail for CDM. |
