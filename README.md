@@ -86,8 +86,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| assume\_role\_policy\_description | The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data in the AccountName account."). | `string` | n/a | yes |
-| assume\_role\_policy\_name | The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., "ACCTNAME-AssumeCdmCloudTrail"). | `string` | n/a | yes |
+| assume\_role\_policy\_description | The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."). | `string` | n/a | yes |
+| assume\_role\_policy\_name | The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., "ACCTNAME-AssumeCdmCloudTrail"). | `string` | n/a | yes |
 | aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
 | bucket\_prefix | A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a unique bucket name beginning with the specified prefix. | `string` | `"cdm-cloudtrail-"` | no |
 | cdm\_user\_name | The user name of the CDM user who will assume the role to access the CloudTrail data. | `string` | n/a | yes |
@@ -96,8 +96,8 @@ No modules.
 | provisioncdmcloudtrail\_policy\_description | The description of the IAM policy that allows sufficient permissions to provision all CDM CloudTrail AWS resources in the account. | `string` | `"Allows provisioning of the CDM CloudTrail resources in the account."` | no |
 | provisioncdmcloudtrail\_policy\_name | The name of the IAM policy that allows sufficient permissions to provision all CDM CloudTrail AWS resources in the account. | `string` | `"ProvisionCdmCloudTrail"` | no |
 | queue\_name | The name of the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
-| role\_description | The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data. | `string` | `"Allows access to the CDM Cloudtrail data."` | no |
-| role\_name | The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data. | `string` | `"CdmCloudTrail"` | no |
+| role\_description | The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"Allows access to the CDM CloudTrail data."` | no |
+| role\_name | The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"CdmCloudTrail"` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | topic\_name | The name of the SNS topic that sends a message when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
 | trail\_name | The name of the CloudTrail trail that generates the information for import into CDM. | `string` | `"cdm-cloudtrail"` | no |
