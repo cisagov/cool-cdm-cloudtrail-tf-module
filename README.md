@@ -19,7 +19,7 @@ module "example" {
     aws.users = aws.usersprovisionaccount
   }
 
-  assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data in the AccountName account."
+  assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."
   assume_role_policy_name        = "AccountName-AssumeCdmCloudTrail"
   cdm_user_name                  = "my-cdm-user"
   tags                           = {

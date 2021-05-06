@@ -6,12 +6,12 @@
 
 variable "assume_role_policy_description" {
   type        = string
-  description = "The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., \"The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data in the AccountName account.\")."
+  description = "The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., \"The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account.\")."
 }
 
 variable "assume_role_policy_name" {
   type        = string
-  description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM Cloudtrail data (e.g., \"ACCTNAME-AssumeCdmCloudTrail\")."
+  description = "The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., \"ACCTNAME-AssumeCdmCloudTrail\")."
 }
 
 variable "cdm_user_name" {
@@ -62,13 +62,13 @@ variable "provisioncdmcloudtrail_policy_name" {
 
 variable "role_description" {
   type        = string
-  description = "The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data."
-  default     = "Allows access to the CDM Cloudtrail data."
+  description = "The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data."
+  default     = "Allows access to the CDM CloudTrail data."
 }
 
 variable "role_name" {
   type        = string
-  description = "The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM Cloudtrail data."
+  description = "The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data."
   default     = "CdmCloudTrail"
 }
 
