@@ -18,7 +18,6 @@ resource "aws_sqs_queue" "cloudtrail" {
     # five tries.
     maxReceiveCount = 4
   })
-  tags = var.tags
 }
 
 # Policy document that allows the SNS topic to send messages to this
@@ -56,7 +55,6 @@ resource "aws_sqs_queue_policy" "cloudtrail" {
 # processed)
 resource "aws_sqs_queue" "cloudtrail_dlq" {
   name = var.deadletter_queue_name
-  tags = var.tags
 }
 
 # Subscription of the SQS queue to the SNS topic

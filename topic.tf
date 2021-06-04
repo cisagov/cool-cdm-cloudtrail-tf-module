@@ -10,7 +10,6 @@ resource "aws_sns_topic" "cloudtrail" {
   ]
 
   name = var.topic_name
-  tags = var.tags
 }
 
 # Policy document that allows CloudTrail to publish to this topic

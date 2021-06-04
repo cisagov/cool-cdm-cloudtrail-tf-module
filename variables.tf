@@ -78,12 +78,6 @@ variable "queue_name" {
   default     = "cdm-cloudtrail"
 }
 
-variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created."
-  default     = {}
-}
-
 variable "topic_name" {
   type        = string
   description = "The name of the SNS topic that sends a message when CloudTrail logs are written to the CDM CloudTrail bucket."

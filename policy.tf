@@ -50,5 +50,4 @@ resource "aws_iam_policy" "cloudtrail" {
   description = var.role_description
   name        = var.role_name
   policy      = data.aws_iam_policy_document.allow_access_to_queue_and_bucket.json
-  tags        = var.tags
 }

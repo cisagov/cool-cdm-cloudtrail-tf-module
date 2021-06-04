@@ -22,10 +22,6 @@ module "example" {
   assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."
   assume_role_policy_name        = "AccountName-AssumeCdmCloudTrail"
   cdm_user_name                  = "my-cdm-user"
-  tags                           = {
-    Key1 = "Value1"
-    Key2 = "Value2"
-  }
 }
 ```
 
@@ -38,14 +34,14 @@ module "example" {
 | Name | Version |
 |------|---------|
 | terraform | ~> 0.12.0 |
-| aws | ~> 3.0 |
+| aws | ~> 3.38 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
-| aws.users | ~> 3.0 |
+| aws | ~> 3.38 |
+| aws.users | ~> 3.38 |
 
 ## Modules ##
 
@@ -98,7 +94,6 @@ No modules.
 | queue\_name | The name of the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
 | role\_description | The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"Allows access to the CDM CloudTrail data."` | no |
 | role\_name | The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"CdmCloudTrail"` | no |
-| tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | topic\_name | The name of the SNS topic that sends a message when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
 | trail\_name | The name of the CloudTrail trail that generates the information for import into CDM. | `string` | `"cdm-cloudtrail"` | no |
 
