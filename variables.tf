@@ -26,7 +26,7 @@ variable "cdm_user_name" {
 # ------------------------------------------------------------------------------
 variable "aws_region" {
   type        = string
-  description = "The AWS region to deploy into (e.g. us-east-1)."
+  description = "The AWS region to deploy into (e.g. \"us-east-1\")."
   default     = "us-east-1"
 }
 
@@ -76,12 +76,6 @@ variable "queue_name" {
   type        = string
   description = "The name of the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket."
   default     = "cdm-cloudtrail"
-}
-
-variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created."
-  default     = {}
 }
 
 variable "topic_name" {

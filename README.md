@@ -22,10 +22,6 @@ module "example" {
   assume_role_policy_description = "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."
   assume_role_policy_name        = "AccountName-AssumeCdmCloudTrail"
   cdm_user_name                  = "my-cdm-user"
-  tags                           = {
-    Key1 = "Value1"
-    Key2 = "Value2"
-  }
 }
 ```
 
@@ -38,14 +34,14 @@ module "example" {
 | Name | Version |
 |------|---------|
 | terraform | ~> 0.12.0 |
-| aws | ~> 3.0 |
+| aws | ~> 3.38 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
-| aws.users | ~> 3.0 |
+| aws | ~> 3.38 |
+| aws.users | ~> 3.38 |
 
 ## Modules ##
 
@@ -88,7 +84,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | assume\_role\_policy\_description | The description to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., "The IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data in the AccountName account."). | `string` | n/a | yes |
 | assume\_role\_policy\_name | The name to associate with the IAM policy that allows the CDM user to assume the IAM role that allows access to the CDM CloudTrail data (e.g., "ACCTNAME-AssumeCdmCloudTrail"). | `string` | n/a | yes |
-| aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
+| aws\_region | The AWS region to deploy into (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
 | bucket\_prefix | A prefix to use when creating a unique name for the S3 bucket where CloudTrail logs will be collected for CDM.  Terraform will create a unique bucket name beginning with the specified prefix. | `string` | `"cdm-cloudtrail-"` | no |
 | cdm\_user\_name | The user name of the CDM user who will assume the role to access the CloudTrail data. | `string` | n/a | yes |
 | deadletter\_queue\_name | The name of the deadletter queue associated with the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail-deadletter"` | no |
@@ -98,7 +94,6 @@ No modules.
 | queue\_name | The name of the SQS queue that collects the messages sent when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
 | role\_description | The description to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"Allows access to the CDM CloudTrail data."` | no |
 | role\_name | The name to assign the IAM role (as well as the corresponding policy) that allows access to the CDM CloudTrail data. | `string` | `"CdmCloudTrail"` | no |
-| tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | topic\_name | The name of the SNS topic that sends a message when CloudTrail logs are written to the CDM CloudTrail bucket. | `string` | `"cdm-cloudtrail"` | no |
 | trail\_name | The name of the CloudTrail trail that generates the information for import into CDM. | `string` | `"cdm-cloudtrail"` | no |
 

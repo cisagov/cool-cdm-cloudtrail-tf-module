@@ -9,5 +9,4 @@ resource "aws_cloudtrail" "trail" {
   name                       = var.trail_name
   s3_bucket_name             = aws_s3_bucket.cloudtrail.id
   sns_topic_name             = aws_sns_topic.cloudtrail.name
-  tags                       = var.tags
 }
