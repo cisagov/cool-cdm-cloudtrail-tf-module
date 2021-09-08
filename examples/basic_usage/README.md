@@ -10,17 +10,21 @@ Note that this example may create resources which cost money. Run
 
 ## Requirements ##
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | ~> 0.13.0 |
 
 ## Providers ##
 
-No providers.
+| Name | Version |
+|------|---------|
+| aws | ~> 3.38 |
 
 ## Modules ##
 
 | Name | Source | Version |
 |------|--------|---------|
-| example | ../../ |  |
+| example | ../../ | n/a |
 
 ## Resources ##
 
