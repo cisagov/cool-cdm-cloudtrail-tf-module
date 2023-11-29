@@ -29,19 +29,20 @@ module "example" {
 
 - [Basic usage](https://github.com/cisagov/cool-cdm-cloudtrail-tf-module/tree/develop/examples/basic_usage)
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements ##
 
 | Name | Version |
 |------|---------|
 | terraform | ~> 1.0 |
-| aws | ~> 3.38 |
+| aws | ~> 4.9 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.38 |
-| aws.users | ~> 3.38 |
+| aws | ~> 4.9 |
+| aws.users | ~> 4.9 |
 
 ## Modules ##
 
@@ -109,6 +110,7 @@ No modules.
 | queue | The SQS queue of messages notifying of CloudTrail logs being written to the CDM S3 bucket. |
 | topic | The SNS topic for notifications of CloudTrail logs being written to the CDM S3 bucket. |
 | trail | The CloudTrail trail for CDM. |
+<!-- END_TF_DOCS -->
 
 ## Notes ##
 
