@@ -13,7 +13,7 @@ the CloudTrail logs from the S3 bucket as they are processed.
 
 ```hcl
 module "example" {
-  source = "github.com/cisagov/cool-cdm-cloudtrail-tf-module"
+  source = "github.com/cisagov/cool-cdm-cloudtrail-tf-module?ref=v1.0.0"
   providers = {
     aws = aws.accountnameprovisionaccount
     aws.users = aws.usersprovisionaccount
