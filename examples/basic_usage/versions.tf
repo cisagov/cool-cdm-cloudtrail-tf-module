@@ -3,9 +3,11 @@ terraform {
   # major version currently being used.  This practice will help us
   # avoid unwelcome surprises.
   required_providers {
+    # We have verified that our code works with version 6.7 of this
+    # Terraform provider.
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.7"
     }
   }
 
