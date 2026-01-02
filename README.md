@@ -1,6 +1,8 @@
 # cool-cdm-cloudtrail-tf-module #
 
 [![GitHub Build Status](https://github.com/cisagov/cool-cdm-cloudtrail-tf-module/workflows/build/badge.svg)](https://github.com/cisagov/cool-cdm-cloudtrail-tf-module/actions)
+[![License](https://img.shields.io/github/license/cisagov/cool-cdm-cloudtrail-tf-module)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/cool-cdm-cloudtrail-tf-module/workflows/CodeQL/badge.svg)](https://github.com/cisagov/cool-cdm-cloudtrail-tf-module/actions/workflows/codeql-analysis.yml)
 
 This Terraform module creates the necessary resources to allow the CDM
 Splunk user to access and import the CloudTrail logs for an account.
