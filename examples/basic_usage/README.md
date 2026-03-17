@@ -12,7 +12,7 @@ Note that this example may create resources which cost money. Run
 ## Requirements ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | ~> 1.1 |
 | aws | ~> 6.7 |
 
@@ -23,7 +23,7 @@ No providers.
 ## Modules ##
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | example | ../../ | n/a |
 
 ## Resources ##
@@ -33,14 +33,14 @@ No resources.
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | accountname\_role\_arn | The ARN of the role to assume for the AccountName provider. | `string` | `"arn:aws:iam::210987654321:role/ProvisionAccount"` | no |
 | users\_role\_arn | The ARN of the role to assume for the default provider. | `string` | `"arn:aws:iam::123456789012:role/ProvisionAccount"` | no |
 
 ## Outputs ##
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | access\_policy | The IAM policy with the necessary permissions to access the CDM CloudTrail data. |
 | access\_role | The IAM role that can be assumed to access the CDM CloudTrail data. |
 | assume\_access\_role\_policy | The IAM policy that allows the CDM user to assume the IAM role that allows access the CDM CloudTrail data. |
